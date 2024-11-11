@@ -1,6 +1,6 @@
+import PropTypes from "prop-types";
 import { useState } from 'react'
 
-// eslint-disable-next-line react/prop-types
 const AddCategory = ({ onAddCategory }) => {
 
   const [inputValue, setInputValue] = useState("")
@@ -18,7 +18,7 @@ const AddCategory = ({ onAddCategory }) => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} aria-label="form">
       <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
       <div className="relative">
 
@@ -34,6 +34,10 @@ const AddCategory = ({ onAddCategory }) => {
       </div>
     </form>
   )
+}
+
+AddCategory.propTypes = {
+  onAddCategory: PropTypes.func.isRequired,
 }
 
 export default AddCategory

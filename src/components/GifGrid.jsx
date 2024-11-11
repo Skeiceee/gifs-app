@@ -1,12 +1,10 @@
 import GifItem from "./GifItem";
 
 import useFetchGifs from "../hooks/useFetchGifs";
+import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
 const GifGrid = ({ category }) => {
-
   const {images, isLoading} = useFetchGifs(category)
-
   return (
     <>
       <div className="mt-10">
@@ -14,7 +12,7 @@ const GifGrid = ({ category }) => {
 
         {
           isLoading && (
-            <div className="flex justify-center my-10">
+            <div className="flex justify-center my-10" aria-label="loading">
               <div className="container">
                 <div className="cube"><div className="cube__inner"></div></div>
                 <div className="cube"><div className="cube__inner"></div></div>
@@ -40,5 +38,9 @@ const GifGrid = ({ category }) => {
     </>
   );
 };
+
+GifGrid.propTypes = {
+  category: PropTypes.string.isRequired,
+}
 
 export default GifGrid;
